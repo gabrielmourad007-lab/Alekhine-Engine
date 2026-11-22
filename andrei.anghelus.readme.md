@@ -1,1 +1,1 @@
-
+Got the first output, wrote a first CMakeLists.txt and did the input file reading and output file writing.
