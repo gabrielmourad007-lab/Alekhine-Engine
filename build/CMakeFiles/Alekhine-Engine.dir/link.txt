@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/Alekhine-Engine.dir/link.d "CMakeFiles/Alekhine-Engine.dir/src/main.cpp.o" -o Alekhine-Engine  libalekhine_core.a

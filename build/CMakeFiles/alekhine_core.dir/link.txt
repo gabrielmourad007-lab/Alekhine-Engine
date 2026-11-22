@@ -1,2 +1,0 @@
-/usr/bin/ar qc libalekhine_core.a CMakeFiles/alekhine_core.dir/src/board.cpp.o
-/usr/bin/ranlib libalekhine_core.a

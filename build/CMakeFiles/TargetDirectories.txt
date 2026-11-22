@@ -1,4 +1,0 @@
-/home/andrei/Alekhine-Engine/build/CMakeFiles/alekhine_core.dir
-/home/andrei/Alekhine-Engine/build/CMakeFiles/Alekhine-Engine.dir
-/home/andrei/Alekhine-Engine/build/CMakeFiles/edit_cache.dir
-/home/andrei/Alekhine-Engine/build/CMakeFiles/rebuild_cache.dir
