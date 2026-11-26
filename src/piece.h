@@ -3,12 +3,18 @@
 
 #include "constants.h"
 
+#include <vector>
+
+class board_t;
+
 class piece_t {
+public:
 	color_t color;
 	type_t type;
 
-public:
 	piece_t(color_t, type_t);
+
+	virtual std::vector<pair<int,int>> get_moves(board_t, pair<int,int>);
 };
 
 class pawn_t : piece_t {

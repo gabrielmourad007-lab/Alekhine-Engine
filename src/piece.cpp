@@ -3,6 +3,12 @@
 piece_t::piece_t(color_t color, type_t type)
 	: color { color }, type { type } {}
 
+std::vector<pair<int,int>> piece_t::get_moves(pair<int,int> position) {
+	vector<pair<int,int>> v;
+	v.push_back(position);
+	return v;
+}
+
 pawn_t::pawn_t(color_t color)
 	: piece_t { color, PAWN } {}
 
