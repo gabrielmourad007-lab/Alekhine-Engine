@@ -1,5 +1,5 @@
 class piece_t {
-	bool colour;
+	color_t color;
 };
 
 class pawn_t : piece_t {
