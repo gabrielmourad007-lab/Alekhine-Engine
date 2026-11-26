@@ -29,4 +29,18 @@ public:
   std::string to_string() const;
 };
 
-#endif
+  side_to_move = color_t::WHITE;
+}
+
+bool board_t::apply_move(int from, int to) {
+  if(!is_valid_square(from) || !is_valid_square(to))
+    return false;
+
+  const piece_t moving = squares[from];
+  if(moving.type == type_t::EMPTY)
+    return false;
+
+  squares[to] = moving;
+  squares[from] = piece_t(color_t::WHITE, type_t::EMPTY);
+  return true;
+}
