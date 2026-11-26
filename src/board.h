@@ -2,43 +2,31 @@
 #define _BOARD_H_
 
 #include "constants.h"
+#include "piece.h"
 
-#include <array>
 #include <string>
+#include <vector>
 
-constexpr int SquareCount = 64;
+constexpr int square_count = 64;
 
-constexpr int squareIndex(int file, int rank) {
+constexpr int square_index(int file, int rank) {
   return rank * 8 + file;
 }
 
-constexpr bool isValidSquare(int square) {
-  return square >= 0 && square < SquareCount;
+constexpr bool is_valid_square(int square) {
+  return square >= 0 && square < square_count;
 }
 
-constexpr color_t colorOf(piece_t piece) {
-  return piece >= Piece::BlackPawn ? Color::Black : Color::White;
-}
-
-class Board {
+class board_t {
 public:
-  Board();
+  std::vector<piece_t> squares;
+  color_t side_to_move;
 
-  void setStartingPosition();
-  bool applyMove(int from, int to);
-  std::string toString() const;
+  board_t();
 
-  piece_t pieceAt(int square) const {
-    return squares_[square];
-  }
-
-  color_t sideToMove() const {
-    return sideToMove_;
-  }
-
-private:
-  std::array<Piece, SquareCount> squares_{};
-  Color sideToMove_ = Color::White;
+  void set_starting_position();
+  bool apply_move(int from, int to);
+  std::string to_string() const;
 };
 
 #endif
