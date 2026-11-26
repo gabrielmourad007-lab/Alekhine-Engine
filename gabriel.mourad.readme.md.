@@ -5,5 +5,6 @@ GitHub: gabrielmourad007
 ## Week 1
 - Divide work and meet with team .
 - Planned the board design with the team: a simple 64-square array which I plan on extending step by step with castling... 
-- Implemented board v0: starting position, turn tracking and basic moves with captures.
-- What's next for Thursday and plan: promotion, castling and en passant,  advice from past bx27s
+- Research board representations and inspiring myself from bx27s
+- Implemented board v0: starting position, turn tracking and basic moves with captures., adding board.cpp 
+- What's next for next week and plan: promotion, castling and en passant,  advice from past bx27s
