@@ -3,8 +3,9 @@
 GitHub: gabrielmourad007
 
 ## Week 1
-- Divide work and meet with team .
-- Planned the board design with the team: a simple 64-square array which I plan on extending step by step with castling... 
-- Research board representations and inspiring myself from bx27s
-- Implemented board v0: starting position, turn tracking and basic moves with captures., adding board.cpp 
-- What's next for next week and plan: promotion, castling and en passant,  advice from past bx27s
+-Split the work and met with the team: I'm in charge of the board
+- Planned the board design with the team: a simple 64-square array that I'll extend step by step (promotion, castling, en passant).
+-Researched board representations and took ideas from last year's bx27 projects.
+-Implemented board v0 in board.h and board.cpp : starting position, turn tracking, basic moves with captures, and to_string for debugging.
+-Discussed with the TA how to store pieces: an array of pointers, so each piece's own get_moves runs (polymorphism).
+-Plan for next week: Switch the board to piece pointers, with delete on capture and a destructor, Switch the board to piece pointers, with delete on capture and a destructor, Add promotion, castling and en passant.
