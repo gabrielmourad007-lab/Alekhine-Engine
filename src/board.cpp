@@ -22,3 +22,21 @@ void board_t::set_starting_position() {
 
   side_to_move = color_t::WHITE;
 }
+  side_to_move = color_t::WHITE;
+}
+
+bool board_t::apply_move(int from, int to) {
+  if(!is_valid_square(from) || !is_valid_square(to))
+    return false;
+
+  const piece_t moving = squares[from];
+  if(moving.type == type_t::EMPTY || moving.color != side_to_move)
+    return false;
+
+  squares[to] = moving;
+  squares[from] = piece_t(color_t::WHITE, type_t::EMPTY);
+
+  side_to_move
+    = side_to_move == color_t::WHITE ? color_t::BLACK : color_t::WHITE;
+  return true;
+}
