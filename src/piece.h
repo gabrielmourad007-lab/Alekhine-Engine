@@ -5,6 +5,9 @@
 
 class piece_t {
 	color_t color;
+	type_t type;
+
+	piece_t(color_t, type_t);
 };
 
 class pawn_t : piece_t {
