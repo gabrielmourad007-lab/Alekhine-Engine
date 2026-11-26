@@ -1,3 +1,8 @@
+#ifndef _PIECE_H_
+#define _PIECE_H_
+
+#include "constants.h"
+
 class piece_t {
 	color_t color;
 };
@@ -19,3 +24,5 @@ class queen_t : piece_t {
 
 class king_t : piece_t {
 };
+
+#endif
