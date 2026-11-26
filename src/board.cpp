@@ -1,5 +1,20 @@
 #include "board.h"
 
+#include <cctype>
+#include <string_view>
+
+namespace {
+
+  char piece_char(const piece_t &piece) {
+    constexpr std::string_view letters = ".PNBRQK";
+    const char letter = letters[static_cast<std::size_t>(piece.type)];
+    if(piece.type != type_t::EMPTY && piece.color == color_t::BLACK)
+      return static_cast<char>(std::tolower(letter));
+    return letter;
+  }
+
+} // namespace
+
 board_t::board_t()
   : squares(square_count, piece_t(color_t::WHITE, type_t::EMPTY)),
     side_to_move(color_t::WHITE) {
@@ -22,8 +37,6 @@ void board_t::set_starting_position() {
 
   side_to_move = color_t::WHITE;
 }
-  side_to_move = color_t::WHITE;
-}
 
 bool board_t::apply_move(int from, int to) {
   if(!is_valid_square(from) || !is_valid_square(to))
@@ -39,4 +52,19 @@ bool board_t::apply_move(int from, int to) {
   side_to_move
     = side_to_move == color_t::WHITE ? color_t::BLACK : color_t::WHITE;
   return true;
+}
+
+std::string board_t::to_string() const {
+  std::string text;
+  for(int rank = 7; rank >= 0; --rank) {
+    text += static_cast<char>('1' + rank);
+    text += ' ';
+    for(int file = 0; file < 8; ++file) {
+      text += piece_char(squares[square_index(file, rank)]);
+      text += ' ';
+    }
+    text += '\n';
+  }
+  text += "  a b c d e f g h\n";
+  return text;
 }
