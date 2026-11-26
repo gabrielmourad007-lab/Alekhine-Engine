@@ -30,7 +30,7 @@ public:
 class bishop_t : piece_t {
 public:
 	bishop_t(color_t);
-}
+};
 
 class rook_t : piece_t {
 public:
