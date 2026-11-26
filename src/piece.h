@@ -2,11 +2,11 @@
 #define _PIECE_H_
 
 #include "constants.h"
+#include "move.h"
 
 #include <vector>
 
 class board_t;
-class move_t;
 
 class piece_t {
 public:
@@ -14,43 +14,44 @@ public:
 	type_t type;
 
 	piece_t(color_t, type_t);
-	virtual std::vector<move_t> get_moves(board_t, size_t, size_t) = 0;
+	virtual ~piece_t() = default;
+	virtual std::vector<move_t> get_moves(const board_t&, int) const  = 0;
 };
 
-class pawn_t : piece_t {
+class pawn_t : public piece_t {
 public:
 	pawn_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int) const override;
 };
 
-class knight_t : piece_t {
+class knight_t : public piece_t {
 public:
 	knight_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int)const override;
 };
 
-class bishop_t : piece_t {
+class bishop_t : public piece_t {
 public:
 	bishop_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int) const override;
 };
 
-class rook_t : piece_t {
+class rook_t : public piece_t {
 public:
 	rook_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int) const override;
 };
 
-class queen_t : piece_t {
+class queen_t : public piece_t {
 public:
 	queen_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int) const override;
 };
 
-class king_t : piece_t {
+class king_t : public piece_t {
 public:
 	king_t(color_t);
-	std::vector<move_t> get_moves(board_t, size_t, size_t);
+	std::vector<move_t> get_moves(const board_t&, int) const override;
 };
 
 #endif

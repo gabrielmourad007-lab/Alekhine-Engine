@@ -14,7 +14,8 @@ endif()
 
 add_library(alekhine_core)
 target_sources(alekhine_core PRIVATE
-  src/board.cpp) #add all .cpp files here for compilation
+  src/board.cpp
+  src/piece.cpp) #add all .cpp files here for compilation
 
 target_include_directories(alekhine_core PUBLIC src)
 target_compile_options(alekhine_core PRIVATE -Wall -Wextra -Wpedantic)
