@@ -1,15 +1,7 @@
-#pragma once
+#include "constants.h"
 
 #include <array>
 #include <string>
-
-enum class color_t { 
-	WHITE, BLACK
-};
-
-enum class type_t {
-  EMPTY, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING
-};
 
 constexpr int SquareCount = 64;
 
