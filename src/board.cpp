@@ -105,3 +105,16 @@ std::string board_t::to_string() const {
   text += "  a b c d e f g h\n";
   return text;
 }
+
+std::vector<move_t> board_t::pseudo_legal_moves() const {
+    std::vector<move_t> moves;
+    for ( int sq = 0; sq < square_count; sq++ ) {
+      const piece_t* piece = squares[sq];
+      if ( piece == nullptr || piece->color != side_to_move ) {
+        continue;
+      }
+      std::vector<move_t> piece_moves = piece->get_moves(*this, sq);
+      moves.insert(moves.end(), piece_moves.begin(), piece_moves.end());
+    }
+    return moves;
+}

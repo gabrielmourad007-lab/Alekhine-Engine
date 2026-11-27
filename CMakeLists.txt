@@ -27,3 +27,7 @@ target_link_libraries(Alekhine-Engine PRIVATE alekhine_core)
 #cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 #cmake --build build -j$(nproc)
 #./build/Alekhine-Engine -H runtime/history.txt -m runtime/move.txt
+
+# Sandbox for quick tests: ./build/sandbox  ->  writes runtime/test.txt
+add_executable(sandbox tests/sandbox.cpp)
+target_link_libraries(sandbox PRIVATE alekhine_core)
