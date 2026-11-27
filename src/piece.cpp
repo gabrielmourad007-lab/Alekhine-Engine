@@ -74,6 +74,22 @@ std::vector<move_t> pawn_t::get_moves(const board_t& board, int sq) const{
 
 std::vector<move_t> knight_t::get_moves(const board_t& board, int sq) const{
 	std::vector<move_t> v;
+
+	static constexpr int dir[8][2] = {{1,2},{-1,2},{2,1},{-2,1},
+                                    {1,-2},{-1,-2},{2,-1},{-2,-1}};
+
+	for ( auto elem : dir ) {
+		const int df = elem[0];
+		const int dr = elem[1];
+		const int file = file_of(sq);
+		const int rank = rank_of(sq);
+		const int next_rank = rank + dr;
+		const int next_file = file + df;
+		if (next_rank < 0 || next_rank > 7 || next_file < 0 || next_rank > 7 ) continue;
+		const int target = square_index(next_file, next_rank);
+		const piece_t* p = board.squares[target];
+		if ( p == nullptr || p->color != color ) v.emplace_back(sq, target);
+	}
 	return v;
 }
 
